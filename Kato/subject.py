@@ -14,4 +14,3 @@ elif (math >= 50 and ja >= 50 and eng >= 50) and (total >= 220):
 else:
     print("不合格", end="")
 
-

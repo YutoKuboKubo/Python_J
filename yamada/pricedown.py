@@ -17,22 +17,22 @@ i = 0
 #果物類の値下げ
 if hm_class == "果物類":
     while i <= (len(fruits)-1):
-        hinmoku[fruits[i]] -= price_down
-        if hinmoku[fruits[i]] <= 0:
+        hinmoku[fruits[i]] -= price_down #品目ごとの値下げ
+        if hinmoku[fruits[i]] <= 0: #1未満のときの処理
             hinmoku[fruits[i]] = 1
         i += 1
 #酒類の値下げ
 if hm_class == "酒類":
-    while i <= (len(alcohol)-1):
-        hinmoku[alcohol[i]] -= price_down
-        if hinmoku[alcohol[i]] <= 0:
+    while i <= (len(alcohol)-1): 
+        hinmoku[alcohol[i]] -= price_down #品目ごとの値下げ
+        if hinmoku[alcohol[i]] <= 0: #1未満のときの処理
             hinmoku[alcohol[i]] = 1
         i += 1
 #麺類の値下げ
 if hm_class == "麺類":
     while i <= (len(noodles)-1):
-        hinmoku[noodles[i]] -= price_down
-        if hinmoku[noodles[i]] <= 0:
+        hinmoku[noodles[i]] -= price_down  #品目ごとの値下げ
+        if hinmoku[noodles[i]] <= 0: #1未満のときの処理
             hinmoku[noodles[i]] = 1
         i += 1
 #表示

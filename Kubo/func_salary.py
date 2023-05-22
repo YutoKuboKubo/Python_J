@@ -10,4 +10,3 @@ def calcsalary(salary):
     # 支給額を計算
     payment = salary - tax_amount
     return payment, tax_amount
-    

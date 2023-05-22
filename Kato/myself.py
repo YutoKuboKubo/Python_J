@@ -1,4 +1,4 @@
-from intoroduce import Intro
+from introduce import Intro
 import sys
 args = sys.argv
 

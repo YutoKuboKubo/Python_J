@@ -11,7 +11,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["29" , "100"]
+            "args": ["akira" , "100"]
 
         }
     ]

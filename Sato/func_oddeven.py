@@ -2,9 +2,9 @@
 def calcvalue(x):
     for i in x:
         if i % 2 == 0:
-            print("nは偶数")
+            print(str(i) + "は偶数")
         else:
-            print("mは奇数")
+            print(str(i) + "は奇数")
 
 import sys
 args = sys.argv

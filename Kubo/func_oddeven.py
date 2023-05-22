@@ -6,9 +6,9 @@ args = sys.argv
 def calcvalue(x):
     for i in x:
         if i % 2 == 0:
-            print("nは偶数")
+            print(f"{i}は偶数")
         else:
-            print("mは奇数")
+            print(f"{i}は奇数")
 
 
 # 第2引数を全てintに変換し、listに格納

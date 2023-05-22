@@ -1,5 +1,7 @@
-from datetime import date, weekday
+from datetime import date
 import sys
+
+
 args = sys.argv
 # それぞれの引数をintに変換し、変数に代入
 dates, adult, child = int(args[1]), int(args[2]), int(args[3])

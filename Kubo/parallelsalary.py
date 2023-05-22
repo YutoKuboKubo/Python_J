@@ -1,5 +1,7 @@
 from func_salary import calcsalary
 import sys
+
+
 args = sys.argv
 # 第2引数以降をintに変換し、listとして変数に代入
 salaries = list(map(int, args[1:]))

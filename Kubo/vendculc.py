@@ -18,11 +18,13 @@ def check_money():
         return check_money()
     else:
         return money
+
     
 
 def change_money(money):
     moneys = {"5000円札": 0, "1000円札": 0, "500円玉": 0,
                "100円玉": 0, "50円玉": 0, "10円玉": 0}
+
     while money != 0:
         if money >= 5000:
             moneys["5000円札"] += 1
@@ -43,10 +45,12 @@ def change_money(money):
             moneys["10円玉"] += 1
             money -= 10
 
+            
+    result_moneys = {}
     for i, v in moneys.items():
-        if v == 0:
-            del moneys[i]
-    return moneys
+        if v != 0:
+            result_moneys[i] = v
+    return result_moneys
 
 
 def print_moneys(moneys):
@@ -55,11 +59,20 @@ def print_moneys(moneys):
         print(f"{i}：{v}枚")
 
 
+
+def buy_product(money):
+    action = input("何を購入しますか（商品名/cancel）")
+    if action == "cancel":
+        print_moneys(change_money(money))
+        exit()
+    money -= products[action]
+    return money
+
+
 money = check_money()
-action = input("何を購入しますか（商品名/cancel）")
-if action == "cancel":
-    print_moneys(change_money(money))
-money -= products[action]
+money = buy_product(money)
+
+
 while money >= min(products.values()):
     print(f"残金：{money}")
     check = input("続けて購入しますか？（Y/N）")
@@ -67,6 +80,9 @@ while money >= min(products.values()):
         for i, v in products.items():
             print(f"{i}：{v}円")
 
-
-print_moneys(change_money(money))
-
+        money = buy_product(money)
+    elif check == "N":
+        print_moneys(change_money(money))
+        exit()
+else:
+    print_moneys(change_money(money))

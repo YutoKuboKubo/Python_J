@@ -43,7 +43,7 @@ def change_money(money):
         elif money >= 10:
             moneys["10円玉"] += 1
             money -= 10
-     
+
     result_moneys = {}
     for i, v in moneys.items():
         if v != 0:

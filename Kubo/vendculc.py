@@ -43,10 +43,11 @@ def change_money(money):
             moneys["10円玉"] += 1
             money -= 10
 
+    result_moneys = {}
     for i, v in moneys.items():
-        if v == 0:
-            del moneys[i]
-    return moneys
+        if v != 0:
+            result_moneys[i] = v
+    return result_moneys
 
 
 def print_moneys(moneys):

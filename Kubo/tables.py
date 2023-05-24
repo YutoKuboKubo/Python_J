@@ -44,6 +44,7 @@ class Tbl_money(Base):
 
 # テーブル：メッセージテーブルの定義
 class Tbl_message(Base):
+    __tablename__ = 'tbl_message'
     seq = Column('seq', Integer, primary_key=True)
     message = Column('message', VARCHAR(100))
     datetime = Column('datetime', DateTime)

@@ -1,14 +1,18 @@
+#モジュールのインポート
 from datetime import date
 import sys
-args = sys.argv
 
+#変数の定義
+args = sys.args
 today = int(args[1])
 adult = int(args[2])
 child = int(args[3])
 
+#int型から除算で年月日
 year = today // 10000
-month = (today - (year * 10000)) //100
+month = (today - (year * 10000)) // 100
 day = today - (year * 10000) - (month * 100)
+
 
 dt = date(year,month,day)
 week = dt.strftime("%a")

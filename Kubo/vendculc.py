@@ -19,11 +19,10 @@ def check_money():
     else:
         return money
 
-    
 
 def change_money(money):
     moneys = {"5000円札": 0, "1000円札": 0, "500円玉": 0,
-               "100円玉": 0, "50円玉": 0, "10円玉": 0}
+              "100円玉": 0, "50円玉": 0, "10円玉": 0}
 
     while money != 0:
         if money >= 5000:
@@ -45,7 +44,6 @@ def change_money(money):
             moneys["10円玉"] += 1
             money -= 10
 
-            
     result_moneys = {}
     for i, v in moneys.items():
         if v != 0:
@@ -57,7 +55,6 @@ def print_moneys(moneys):
     print("おつり")
     for i, v in moneys.items():
         print(f"{i}：{v}枚")
-
 
 
 def buy_product(money):

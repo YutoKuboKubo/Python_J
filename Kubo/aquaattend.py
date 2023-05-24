@@ -12,11 +12,11 @@ child_num = args[3]
 # dayをstrからdateに変換
 day = date(int(day[:4]), int(day[4:6]), int(day[6:]))
 # 引数の日付のカラムを全て取得
-day_num = session.query(Attendnum).filter_by(entry_date=day).all()
+day_num = session.query(Attendnum).filter_by(date=day).all()
 day_seq = len(day_num) + 1
 # 登録するデータの編集
 attendnum = Attendnum(
-    entry_date=day,
+    date=day,
     seq=day_seq,
     adult=adult_num,
     child=child_num

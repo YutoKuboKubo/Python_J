@@ -17,5 +17,5 @@ if week == "Sat" or week == "Sun": #土日の料金
 else: #平日の料金
     fee = b * 2000 + c * 1200
 #料金を出力
-print(fee)
+print(fee, end="")
 

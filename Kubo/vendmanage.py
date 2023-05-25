@@ -26,8 +26,8 @@ def check_money(prices):
         return money
 
 
-# 投入金額を計算する関数
-def calc_money(money):
+# お金の枚数を計算する関数
+def calc_amount_money(money):
     moneys = {"5000円札": 0, "1000円札": 0, "500円玉": 0,
               "100円玉": 0, "50円玉": 0, "10円玉": 0}
 
@@ -55,6 +55,13 @@ def calc_money(money):
     for i, v in moneys.items():
         if v != 0:
             result_moneys[i] = v
+    return result_moneys
+
+
+# 投入金額を計算する関数
+def calc_money(money):
+    # お金の枚数を分ける
+    result_moneys = calc_amount_money(money)
     # おつりテーブルを更新
     for i, v in result_moneys.items():
         # おつりが出る金額のレコード取得
@@ -69,32 +76,8 @@ def calc_money(money):
 
 # おつりを計算する関数
 def calc_change(money):
-    moneys = {"5000円札": 0, "1000円札": 0, "500円玉": 0,
-              "100円玉": 0, "50円玉": 0, "10円玉": 0}
-
-    while money != 0:
-        if money >= 5000:
-            moneys["5000円札"] += 1
-            money -= 5000
-        elif money >= 1000:
-            moneys["1000円札"] += 1
-            money -= 1000
-        elif money >= 500:
-            moneys["500円玉"] += 1
-            money -= 500
-        elif money >= 100:
-            moneys["100円玉"] += 1
-            money -= 100
-        elif money >= 50:
-            moneys["50円玉"] += 1
-            money -= 50
-        elif money >= 10:
-            moneys["10円玉"] += 1
-            money -= 10
-    result_moneys = {}
-    for i, v in moneys.items():
-        if v != 0:
-            result_moneys[i] = v
+    # お金の枚数を分ける
+    result_moneys = calc_amount_money(money)
     # おつりテーブルを更新
     for i, v in result_moneys.items():
         # おつりが出る金額のレコード取得

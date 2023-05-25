@@ -1,11 +1,11 @@
 from datetime import date
 from database import session #1.データベースへの接続
 from aquatables import Attendnum #2.テーブル定義
-
 import sys
 args = sys.argv
-
+#引数を変数に代入
 a = args[1]
+#年、月、日に分類
 year = a[:4]
 month = a[4:6]
 day = a[6:]

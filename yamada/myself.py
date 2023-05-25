@@ -1,4 +1,4 @@
-import introduce
+import yamada.introduce as introduce
 
 import sys
 args = sys.argv

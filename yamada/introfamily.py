@@ -1,4 +1,4 @@
-import introduce
+import yamada.introduce as introduce
 
 class IntroFam(introduce.Intro):
     def __init__(self, name, age, cat):

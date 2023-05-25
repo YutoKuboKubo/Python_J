@@ -1,4 +1,4 @@
-import introfamily
+import yamada.introfamily as introfamily
 
 import sys
 args = sys.argv

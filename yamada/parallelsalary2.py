@@ -1,4 +1,4 @@
-import func_salary
+import yamada.func_salary as func_salary
 import sys
 args = sys.argv
 

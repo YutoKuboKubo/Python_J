@@ -26,6 +26,47 @@ def check_money(prices):
         return money
 
 
+# 投入金額を計算する関数
+def calc_money(money):
+    moneys = {"5000円札": 0, "1000円札": 0, "500円玉": 0,
+              "100円玉": 0, "50円玉": 0, "10円玉": 0}
+
+    while money != 0:
+        if money >= 5000:
+            moneys["5000円札"] += 1
+            money -= 5000
+        elif money >= 1000:
+            moneys["1000円札"] += 1
+            money -= 1000
+        elif money >= 500:
+            moneys["500円玉"] += 1
+            money -= 500
+        elif money >= 100:
+            moneys["100円玉"] += 1
+            money -= 100
+        elif money >= 50:
+            moneys["50円玉"] += 1
+            money -= 50
+        elif money >= 10:
+            moneys["10円玉"] += 1
+            money -= 10
+    
+    result_moneys = {}
+    for i, v in moneys.items():
+        if v != 0:
+            result_moneys[i] = v
+    # おつりテーブルを更新
+    for i, v in result_moneys.items():
+        # おつりが出る金額のレコード取得
+        change_money = session.query(Tbl_money).filter_by(price=i).first()
+        # おつりの枚数分増やす
+        change_money.number += v
+         # UPDATE処理
+        session.add(change_money)
+        # コミット
+        session.commit()
+
+
 # おつりを計算する関数
 def calc_change(money):
     moneys = {"5000円札": 0, "1000円札": 0, "500円玉": 0,
@@ -130,6 +171,8 @@ show_products(products)
 prices = [x.price for x in products]
 # お金が入れられるか確認
 money = check_money(prices)
+# 投入金額を金額テーブルに足す
+calc_money(money)
 # 買いものを行う
 money = buy_product(money)
 print(money)

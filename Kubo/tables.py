@@ -50,6 +50,19 @@ class Tbl_message(Base):
     datetime = Column('datetime', DateTime)
 
 
+# テーブル：品目マスタテーブルの定義
+class Mst_hinmoku(Base):
+    __tablename__ = 'mst_hinmoku'
+    id = Column('id', VARCHAR(10), primary_key=True)
+    name = Column('name', VARCHAR(20))
+
+
+class Tbl_zaiko(Base):
+    __tablename__ = 'tbl_zaiko'
+    id = Column('id', VARCHAR(10), primary_key=True)
+    
+
+
 def main(args):
     """
     メイン関数

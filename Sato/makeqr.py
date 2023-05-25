@@ -1,5 +1,10 @@
 import qrcode
+import sys
 
-img = qrcode.make("http://kujirahand.com/")
+pas = sys.argv[1]
 
-img.save("/home/matcha-23training/files/qrcode-test.png")
+img = qrcode.make(pas)
+
+img.save("/home/matcha-23training/files/aim.png")
+
+

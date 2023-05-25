@@ -18,16 +18,16 @@ week = dt.strftime("%a")
 
 #祝日かを判定
 holidays = session.query(Holiday.holi_date).all()
-holiday_list = list(holidays)
-l = len(holiday_list)
+l = len(holidays)
 for i in range(l):
-    if dt == holiday_list[i].holi_date:
-        holi = True
+    if dt == holidays[i].holi_date:
+        holi = 1
+        break
     else:
-        holi = False
+        holi = 0
 
 #料金計算
-if week == "Sat" or week == "Sun" or holi == True: #土日祝の料金
+if week == "Sat" or week == "Sun" or holi == 1: #土日祝の料金
     fee = adult * 2400 + child * 1500
 else: #平日の料金
     fee = adult * 2000 + child * 1200

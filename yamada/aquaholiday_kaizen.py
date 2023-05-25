@@ -27,7 +27,7 @@ for i in range(l):
         holi = False
 
 #料金計算
-if week == "Sat" or week == "Sun" or holi == True: #土日の料金
+if week == "Sat" or week == "Sun" or holi == True: #土日祝の料金
     fee = adult * 2400 + child * 1500
 else: #平日の料金
     fee = adult * 2000 + child * 1200

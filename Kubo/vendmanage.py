@@ -50,7 +50,7 @@ def calc_amount_money(money):
         elif money >= 10:
             moneys["10円玉"] += 1
             money -= 10
-    
+
     result_moneys = {}
     for i, v in moneys.items():
         if v != 0:
@@ -68,7 +68,7 @@ def calc_money(money):
         change_money = session.query(Tbl_money).filter_by(price=i).first()
         # おつりの枚数分増やす
         change_money.number += v
-         # UPDATE処理
+        # UPDATE処理
         session.add(change_money)
         # コミット
         session.commit()
@@ -106,8 +106,10 @@ def buy_product(money):
         check_message()
         exit()
     # 更新するレコードの取得
-    product_name = session.query(Mst_merchandise).filter_by(name=action).first()
-    product_stock = session.query(Tbl_stock).filter_by(id=product_name.id).first()
+    product_name = session.query(
+        Mst_merchandise).filter_by(name=action).first()
+    product_stock = session.query(
+        Tbl_stock).filter_by(id=product_name.id).first()
     # 在庫を1減らす
     product_stock.stock -= 1
     # UPDATE処理
@@ -129,7 +131,8 @@ def check_message():
         if change_money.number < 10:
             # メッセージテーブルのレコードをすべて取得
             messages = session.query(Tbl_message).all()
-            message = f"{change_money.price}円の残枚数が{change_money.number}枚になりました。確認してください"
+            message = f"{change_money.price}円の残枚数が\
+            {change_money.number}枚になりました。確認してください"
             # 登録するデータの編集
             new_message = Tbl_message(
                 seq=len(messages)+1,
